@@ -7,6 +7,8 @@ public class Animal {
     private Integer age;
     private String owner;
 
+    private String image;
+
     private boolean selected;
 
     public boolean isSelected() {
@@ -24,11 +26,12 @@ public class Animal {
         this.owner = owner;
     }
 
-    public Animal(Integer id, String name, Integer age, String owner) {
+    public Animal(Integer id, String name, Integer age, String owner, String image) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.owner = owner;
+        this.image = image;
     }
 
     public String getName() {
@@ -62,4 +65,6 @@ public class Animal {
     public void setOwner(String owner) {
         this.owner = owner;
     }
+
+    public String getImage(){return image;}
 }

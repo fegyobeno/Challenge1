@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragment1">
 
-    <Button
-        android:id="@+id/f1_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_gravity="center"
-        android:text="Edit" />
-
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
@@ -23,11 +15,14 @@
 
         android:spinnerMode="dropdown" />
 
-    <TextView
-        android:id="@+id/result"
+    <Button
+        android:id="@+id/f1_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+
+        android:layout_gravity="center"
+        android:text="Edit" />
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -35,6 +30,33 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="400px"
         android:layout_marginTop="500px" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/resultOwner"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="90dp"
+        android:text="TextView" />
+    <TextView
+        android:id="@+id/resultOwner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/result"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="60dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/resultAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/f1_button"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="30dp"
+        android:text="TextView" />
+
 
 
 

@@ -40,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void populateAnimals(AnimalsViewModel model){
 
-        model.getUiState().getValue().add(new Animal(1, "frog", 1, "ben"));
-        model.getUiState().getValue().add(new Animal(2, "rhino", 2, "adri"));
-        model.getUiState().getValue().add(new Animal(3, "snail", 3, "smilja"));
+        model.getUiState().getValue().add(new Animal(1, "frog", 1, "ben", "frog"));
+        model.getUiState().getValue().add(new Animal(2, "rhino", 2, "adri", "rhino"));
+        model.getUiState().getValue().add(new Animal(3, "snail", 3, "smilja", "snail"));
 
     }
 

@@ -114,11 +114,30 @@ public class Fragment1 extends Fragment {
         Spinner spin = view.findViewById(R.id.spinner);
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> spin, View v, int i, long id) {
+
+                short temp = -1;
+                if(viewModel.getUiState().getValue().get(0).getName().equals((String) spin.getSelectedItem())) {
+                    temp = 0;
+                } else if (viewModel.getUiState().getValue().get(1).getName().equals((String) spin.getSelectedItem())){
+                    temp = 1;
+                } else {
+                    temp = 2;
+                }
+
                 TextView result = view.findViewById(R.id.result);
-                result.setText("You chose " + spin.getSelectedItem());
+                TextView resultOwner = view.findViewById(R.id.resultOwner);
+                TextView resultAge = view.findViewById(R.id.resultAge);
+
+                result.setText("You chose: " + viewModel.getUiState().getValue().get(temp).getName());
+
+
+                resultOwner.setText("Owner: " + viewModel.getUiState().getValue().get(temp).getOwner());
+
+                resultAge.setText("Age: " + viewModel.getUiState().getValue().get(temp).getAge().toString());
+
                 String res = (String) spin.getSelectedItem();
                 Resources resources = getActivity().getResources();
-                final int resourceId = resources.getIdentifier(res, "drawable",
+                final int resourceId = resources.getIdentifier(viewModel.getUiState().getValue().get(temp).getImage(), "drawable",
                         getActivity().getPackageName());
                 imageView.setImageResource(resourceId);
 //                selectedAnimal = spin.getSelectedItem().toString();
