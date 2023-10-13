@@ -16,8 +16,6 @@ import android.widget.Toast;
 import com.example.challenge1.model.Animal;
 import com.example.challenge1.model.AnimalsViewModel;
 
-import org.w3c.dom.Text;
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Fragment2#newInstance} factory method to
@@ -121,6 +119,7 @@ public class Fragment2 extends Fragment {
                         selectedAnimal.setAge(age);
                         Toast.makeText(getContext(), "Name -  " + name  + "\nAge - " + age, Toast.LENGTH_SHORT).show();
                     }
+
                 }
                 catch (NumberFormatException e)
                 {

@@ -1,16 +1,15 @@
 package com.example.challenge1;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.example.challenge1.model.Animal;
 import com.example.challenge1.model.AnimalsViewModel;
 
-import java.util.EventListener;
+import java.util.Objects;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,17 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    protected void sth(View el){
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_view, Fragment2.class, null)
-                .commit(); // from activity - container
-    }
 
     private void populateAnimals(AnimalsViewModel model){
 
-        model.getUiState().getValue().add(new Animal(1, "frog", 1, "ben", "frog"));
-        model.getUiState().getValue().add(new Animal(2, "rhino", 2, "adri", "rhino"));
-        model.getUiState().getValue().add(new Animal(3, "snail", 3, "smilja", "snail"));
+        Objects.requireNonNull(model.getUiState().getValue()).add(new Animal(1, "frog", 1, "Ben", "frog"));
+        Objects.requireNonNull(model.getUiState().getValue()).add(new Animal(2, "rhino", 2, "Adri", "rhino"));
+        Objects.requireNonNull(model.getUiState().getValue()).add(new Animal(3, "snail", 3, "Smilja", "snail"));
 
     }
 
