@@ -1,5 +1,6 @@
 package com.example.challenge1;
 
+import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.os.Bundle;
 
@@ -21,6 +22,7 @@ import com.example.challenge1.model.AnimalsViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,7 +38,7 @@ public class Fragment1 extends Fragment {
 
     // TODO: Rename and change types of parameters
 
-    private String selectedAnimal = null;
+    //private String selectedAnimal = null;
     private String mParam1;
     private String mParam2;
 
@@ -83,40 +85,34 @@ public class Fragment1 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_1, container, false);
-        Button button = (Button) view.findViewById(R.id.f1_button);
-        button.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
+        Button button = view.findViewById(R.id.f1_button);
+        button.setOnClickListener(v -> ((MainActivity) getActivity()).switchToFr2());
 
-                ((MainActivity) getActivity()).switchToFr2();
-            }
-        });
-
-        AnimalsViewModel viewModel = new ViewModelProvider(getActivity()).get(AnimalsViewModel.class);
+        AnimalsViewModel viewModel = new ViewModelProvider(requireActivity()).get(AnimalsViewModel.class);
 
         ImageView imageView = view.findViewById(R.id.imageView);
 //
-        List<String> myArraySpinner = new ArrayList<String>();
+        List<String> myArraySpinner = new ArrayList<>();
 
         for (Animal a: viewModel.getUiState().getValue()){
             myArraySpinner.add(a.getName());
             System.out.println(a.getName());
         }
 
-        Spinner mySpinner = view.findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, myArraySpinner);
+        @SuppressLint("CutPasteId") Spinner mySpinner;
+        mySpinner = view.findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, myArraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(adapter);
 
 
         Spinner spin = view.findViewById(R.id.spinner);
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @SuppressLint("SetTextI18n")
             public void onItemSelected(AdapterView<?> spin, View v, int i, long id) {
 
-                short temp = -1;
-                if(viewModel.getUiState().getValue().get(0).getName().equals((String) spin.getSelectedItem())) {
+                short temp;
+                if(viewModel.getUiState().getValue().get(0).getName().equals(spin.getSelectedItem())) {
                     temp = 0;
                 } else if (viewModel.getUiState().getValue().get(1).getName().equals((String) spin.getSelectedItem())){
                     temp = 1;
@@ -137,17 +133,15 @@ public class Fragment1 extends Fragment {
 
                 String res = (String) spin.getSelectedItem();
                 Resources resources = getActivity().getResources();
-                final int resourceId = resources.getIdentifier(viewModel.getUiState().getValue().get(temp).getImage(), "drawable",
+                @SuppressLint("DiscouragedApi") final int resourceId = resources.getIdentifier(viewModel.getUiState().getValue().get(temp).getImage(), "drawable",
                         getActivity().getPackageName());
                 imageView.setImageResource(resourceId);
 //                selectedAnimal = spin.getSelectedItem().toString();
 //                System.out.println(selectedAnimal);
                 for (Animal a: viewModel.getUiState().getValue()){
-                    if (res.equals(a.getName()))
-                        a.setSelected(true);
-                    else a.setSelected(false);
+                    a.setSelected(res.equals(a.getName()));
                 }
-                // set chosen to viewmodel
+                // set chosen to view-model
 
             }
             public void onNothingSelected(AdapterView<?> parent) {} // empty
