@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.example.challenge1.model.Animal;
 import com.example.challenge1.model.AnimalsViewModel;
 
+import org.w3c.dom.Text;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Fragment2#newInstance} factory method to
@@ -79,8 +81,10 @@ public class Fragment2 extends Fragment {
                 selectedAnimal = a;
                 name = a.getName();
                 TextView result = view.findViewById(R.id.name);
-                result.setText("You chose " + a.getName());
+
                 EditText editText = (EditText) view.findViewById(R.id.name_input);
+                EditText ageText = (EditText) view.findViewById(R.id.age_input);
+                ageText.setText(a.getAge().toString());
                 editText.setText(a.getName());//set the text in edit text
 
             }
@@ -102,14 +106,29 @@ public class Fragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 EditText editText = (EditText) view.findViewById(R.id.name_input);
+                EditText ageText = (EditText) view.findViewById(R.id.age_input);
+
                 String name = editText.getText().toString();
-                if (name.isEmpty()) {
-                    Toast.makeText(getContext(), "Enter the name", Toast.LENGTH_SHORT).show();
-                } else {
-                    // save everything
-                    selectedAnimal.setName(name);
-                    Toast.makeText(getContext(), "Name -  " + name, Toast.LENGTH_SHORT).show();
+                try {
+                    Integer age = Integer.valueOf(ageText.getText().toString());
+                    if (name.isEmpty()) {
+                        Toast.makeText(getContext(), "Enter the name", Toast.LENGTH_SHORT).show();
+                    } else if (age < 0) {
+                        Toast.makeText(getContext(), "Value error [age >! 0]", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // save everything
+                        selectedAnimal.setName(name);
+                        selectedAnimal.setAge(age);
+                        Toast.makeText(getContext(), "Name -  " + name  + "\nAge - " + age, Toast.LENGTH_SHORT).show();
+                    }
                 }
+                catch (NumberFormatException e)
+                {
+                    Toast.makeText(getContext(), "Invalid integer format " + ageText.getText().toString(), Toast.LENGTH_SHORT).show();
+                }
+
+
+
             }
         });
         return view;}
