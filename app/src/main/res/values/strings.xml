@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Challenge1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="beast_chooser">Chose a vicious beast</string>
+    <string-array name="beasts">
+        <item>frog</item>
+        <item>rhino</item>
+        <item>snail</item>
+    </string-array>
+
+
+</resources>
