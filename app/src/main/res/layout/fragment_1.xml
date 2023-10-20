@@ -4,58 +4,71 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fragment1_color"
     tools:context=".Fragment1">
-
-    <Spinner
-        android:id="@+id/spinner"
+    <LinearLayout
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
-        android:prompt="@string/beast_chooser"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:content=".MainActivity">
 
-        android:spinnerMode="dropdown" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose your beast"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/mainText_color"
+            android:fontFamily="monospace"></TextView>
 
-    <Button
-        android:id="@+id/f1_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:textAlignment="center"
+            android:prompt="@string/beast_chooser"
+            android:spinnerMode="dropdown" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"/>
 
-        android:layout_gravity="center"
-        android:text="Edit" />
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mainText_color"
+            android:layout_below="@+id/resultOwner"
+            android:layout_marginBottom="5dp"
+            android:text="TextView" />
+        <TextView
+            android:id="@+id/resultOwner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mainText_color"
+            android:layout_below="@+id/result"
+            android:layout_marginBottom="5dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/resultAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mainText_color"
+            android:layout_below="@+id/f1_button"
+            android:layout_marginBottom="30dp"
+            android:text="TextView" />
+        <Button
+            android:id="@+id/f1_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Edit_btn"/>
+    </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="400px"
-        android:layout_marginTop="500px" />
-
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/resultOwner"
-        android:layout_gravity="bottom|center"
-        android:layout_marginBottom="90dp"
-        android:text="TextView" />
-    <TextView
-        android:id="@+id/resultOwner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/result"
-        android:layout_gravity="bottom|center"
-        android:layout_marginBottom="60dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/resultAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/f1_button"
-        android:layout_gravity="bottom|center"
-        android:layout_marginBottom="30dp"
-        android:text="TextView" />
 
 
 
