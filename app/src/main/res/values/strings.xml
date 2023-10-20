@@ -3,6 +3,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Edit_btn"> Edit</string>
+    <string name="blank_txt"></string>
+    <string name="Fragment1_welcome">Choose your beast</string>
+    <string name="Fragment2_welcome">Olá de Fragment 2!</string>
+    <string name="back_btn">Back</string>
+    <string name="save_btn">Save</string>
+    <string name="new_name_editTxt">Enter new name</string>
+    <string name="new_age_editTxt">Enter new age</string>
+
+
+
 
     <string name="beast_chooser">Chose a vicious beast</string>
     <string-array name="beasts">

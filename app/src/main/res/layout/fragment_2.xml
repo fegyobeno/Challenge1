@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fragment2_color"
-
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".Fragment2">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Olá de Fragment 2!" />
-
+        android:layout_height="107dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/Fragment2_welcome"
+        android:textColor="@color/mainText_color"
+        android:textSize="32sp"
+        android:textStyle="bold" />
     <EditText
-        android:padding="20dp"
         android:id="@+id/name_input"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:autofillHints="name"
+        android:hint="@string/new_name_editTxt"
         android:inputType="text"/>
+
 
     <EditText
-        android:padding="20dp"
-        android:layout_marginTop="100dp"
         android:id="@+id/age_input"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:autofillHints="name"
+        android:layout_height="50dp"
+        android:layout_width="150dp"
+        android:hint="@string/new_age_editTxt"
         android:inputType="text"/>
-
     <Button
+        android:id="@+id/f2_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|left"
-        android:paddingLeft="30dp"
-        android:layout_marginLeft="80dp"
-        android:id="@+id/f2_button"
-        android:text="Back" />
-
+        android:text="@string/back_btn" />
     <Button
         android:id="@+id/save"
         android:layout_width="wrap_content"
-        android:layout_marginRight="80dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|right"
-        android:text="Save" />
+        android:text="@string/save_btn" />
 
-</FrameLayout>
+
+</LinearLayout>
