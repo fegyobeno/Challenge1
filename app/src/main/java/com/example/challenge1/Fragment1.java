@@ -24,11 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Fragment1#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Fragment1 extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -46,15 +41,7 @@ public class Fragment1 extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment1.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static Fragment1 newInstance(String param1, String param2) {
         Fragment1 fragment = new Fragment1();
         Bundle args = new Bundle();
@@ -72,13 +59,7 @@ public class Fragment1 extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
     }
-
-
-    // call fe1, fr2 func,
-    // here to have a func that calls a mainActivity function
-    // and the logic will be there
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,7 +72,7 @@ public class Fragment1 extends Fragment {
         AnimalsViewModel viewModel = new ViewModelProvider(requireActivity()).get(AnimalsViewModel.class);
 
         ImageView imageView = view.findViewById(R.id.imageView);
-//
+
         List<String> myArraySpinner = new ArrayList<>();
 
         for (Animal a: viewModel.getUiState().getValue()){
